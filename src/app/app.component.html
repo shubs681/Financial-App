@@ -13,16 +13,8 @@
   <table class="table table-striped">
     <thead>
         <tr>
-          <th (click)="sort('company')">Company
-            <i class="fa" aria-hidden="true"
-                            [ngClass]="{'fa-sort-alpha-asc':reverse,'fa-sort-alpha-desc':!reverse}"
-                            *ngIf="key =='company'"></i>
-        </th>
-          <th (click)="sort('industryType')">Type
-            <i class="fa" aria-hidden="true"
-                            [ngClass]="{'fa-sort-alpha-asc':reverse,'fa-sort-alpha-desc':!reverse}"
-                            *ngIf="key =='industryType'"></i>
-         </th>
+          <th>Company</th>
+          <th>Type</th>
           <th>Price</th>          
           <th>Email</th>
         </tr>

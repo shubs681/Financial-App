@@ -5,7 +5,6 @@ import {Observable} from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import {Company} from './company';
 import companyData from './MockShareMarketData.json';
-import { OrderBy } from './orderby';
 
 @Component({
   selector: 'app-root',
@@ -24,7 +23,7 @@ export class AppComponent {
 		 );
     }
 	else{
-		this.companies = companyData;
+		this.companies = <Company[]>companyData;
   }
   }
   
@@ -35,7 +34,7 @@ export class AppComponent {
 		 );
     }
 	else{
-		this.companies = companyData;
+		this.companies = <Company[]><unknown>companyData;
   }
   
   }
