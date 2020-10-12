@@ -1,0 +1,48 @@
+<!-- Toolbar -->
+<div class="toolbar" role="banner">  
+  <span style="margin-left: 20px;font-size: 20px;">Welcome to {{title}}</span>
+    <div class="spacer"></div>     
+</div>
+
+<div class="content" role="main">
+<div class="container">
+  
+  <input type="text" (keyup)='searchCompany($event.target.value)' placeholder="Search Company Name..." style="width: 20%;">
+  <input type="text" (keyup)='searchType($event.target.value)' placeholder="Search Company Type..." style="width: 20%; margin-left: 10px;">
+  
+  <table class="table table-striped">
+    <thead>
+        <tr>
+          <th (click)="sort('company')">Company
+            <i class="fa" aria-hidden="true"
+                            [ngClass]="{'fa-sort-alpha-asc':reverse,'fa-sort-alpha-desc':!reverse}"
+                            *ngIf="key =='company'"></i>
+        </th>
+          <th (click)="sort('industryType')">Type
+            <i class="fa" aria-hidden="true"
+                            [ngClass]="{'fa-sort-alpha-asc':reverse,'fa-sort-alpha-desc':!reverse}"
+                            *ngIf="key =='industryType'"></i>
+         </th>
+          <th>Price</th>          
+          <th>Email</th>
+        </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let company of companies | paginate: { itemsPerPage: 10, currentPage: p }">
+        <td>{{ company.company }}</td>
+        <td>{{ company.industryType }}</td>
+          <td>{{ company.currentPrice }}</td>
+          <td>{{ company.email }}</td>          
+      </tr>	  
+    </tbody>	
+  </table>
+  <pagination-controls (pageChange)="p = $event"></pagination-controls>
+</div>
+ 
+</div>
+
+
+
+<footer>
+  
+</footer>
